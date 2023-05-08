@@ -1,8 +1,8 @@
 package com.example.HabbitTracker.db.service;
 
-import com.example.habits_tracker.dto.request.HabitRequest;
-import com.example.habits_tracker.dto.response.HabitResponse;
-import com.example.habits_tracker.dto.response.SimpleResponse;
+import com.example.HabbitTracker.dto.request.HabitRequest;
+import com.example.HabbitTracker.dto.response.HabitResponse;
+import com.example.HabbitTracker.dto.response.SimpleResponse;
 
 import java.util.List;
 

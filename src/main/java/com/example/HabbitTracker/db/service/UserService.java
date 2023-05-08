@@ -1,12 +1,12 @@
 package com.example.HabbitTracker.db.service;
 
-import com.example.habits_tracker.dto.request.AuthRequest;
-import com.example.habits_tracker.dto.request.ResetPasswordRequest;
-import com.example.habits_tracker.dto.request.SignUpRequest;
-import com.example.habits_tracker.dto.response.AuthResponse;
-import com.example.habits_tracker.dto.response.SimpleResponse;
+import com.example.HabbitTracker.dto.request.AuthRequest;
+import com.example.HabbitTracker.dto.request.ResetPasswordRequest;
+import com.example.HabbitTracker.dto.request.SignUpRequest;
+import com.example.HabbitTracker.dto.response.AuthResponse;
+import com.example.HabbitTracker.dto.response.SimpleResponse;
+import jakarta.mail.MessagingException;
 
-import javax.mail.MessagingException;
 
 public interface UserService {
 

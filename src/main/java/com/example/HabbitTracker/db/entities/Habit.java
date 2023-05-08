@@ -1,15 +1,16 @@
 package com.example.HabbitTracker.db.entities;
 
-import com.example.habits_tracker.db.entities.enums.ExecutionFrequency;
+import com.example.HabbitTracker.db.entities.enums.ExecutionFrequency;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
+import static jakarta.persistence.CascadeType.*;
+
 
 @Entity
 @Table(name = "habits")

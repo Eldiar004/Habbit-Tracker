@@ -1,16 +1,16 @@
 package com.example.HabbitTracker.db.service.serviceimpl;
 
-import com.example.habits_tracker.db.converter.HabitConverterRequest;
-import com.example.habits_tracker.db.entities.Habit;
-import com.example.habits_tracker.db.entities.User;
-import com.example.habits_tracker.db.repository.HabitRepository;
-import com.example.habits_tracker.db.repository.UserRepository;
-import com.example.habits_tracker.db.service.HabitService;
-import com.example.habits_tracker.dto.request.HabitRequest;
-import com.example.habits_tracker.dto.response.HabitResponse;
-import com.example.habits_tracker.dto.response.SimpleResponse;
-import com.example.habits_tracker.exceptions.BadRequestException;
-import com.example.habits_tracker.exceptions.NotFoundException;
+import com.example.HabbitTracker.db.converter.HabitConverterRequest;
+import com.example.HabbitTracker.db.entities.Habit;
+import com.example.HabbitTracker.db.entities.User;
+import com.example.HabbitTracker.db.repository.HabitRepository;
+import com.example.HabbitTracker.db.repository.UserRepository;
+import com.example.HabbitTracker.db.service.HabitService;
+import com.example.HabbitTracker.dto.request.HabitRequest;
+import com.example.HabbitTracker.dto.response.HabitResponse;
+import com.example.HabbitTracker.dto.response.SimpleResponse;
+import com.example.HabbitTracker.exceptions.BadRequestException;
+import com.example.HabbitTracker.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

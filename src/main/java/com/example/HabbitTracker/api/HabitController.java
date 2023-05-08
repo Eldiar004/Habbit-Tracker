@@ -1,8 +1,8 @@
 package com.example.HabbitTracker.api;
 
-import com.example.habits_tracker.db.service.HabitService;
-import com.example.habits_tracker.dto.request.HabitRequest;
-import com.example.habits_tracker.dto.response.HabitResponse;
+import com.example.HabbitTracker.db.service.HabitService;
+import com.example.HabbitTracker.dto.request.HabitRequest;
+import com.example.HabbitTracker.dto.response.HabitResponse;
 
 import lombok.RequiredArgsConstructor;
 

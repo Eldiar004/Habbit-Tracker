@@ -1,14 +1,14 @@
 package com.example.HabbitTracker.db.entities;
 
-import com.example.habits_tracker.db.entities.enums.Ranks;
+import com.example.HabbitTracker.db.entities.enums.Ranks;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
+import static jakarta.persistence.CascadeType.*;
 
 
 @Entity

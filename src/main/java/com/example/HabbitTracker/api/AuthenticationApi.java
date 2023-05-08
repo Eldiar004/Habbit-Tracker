@@ -1,16 +1,15 @@
 package com.example.HabbitTracker.api;
 
-import com.example.habits_tracker.db.service.UserService;
-import com.example.habits_tracker.dto.request.AuthRequest;
-import com.example.habits_tracker.dto.request.ResetPasswordRequest;
-import com.example.habits_tracker.dto.request.SignUpRequest;
-import com.example.habits_tracker.dto.response.AuthResponse;
-import com.example.habits_tracker.dto.response.SimpleResponse;
+import com.example.HabbitTracker.db.service.UserService;
+import com.example.HabbitTracker.dto.request.AuthRequest;
+import com.example.HabbitTracker.dto.request.ResetPasswordRequest;
+import com.example.HabbitTracker.dto.request.SignUpRequest;
+import com.example.HabbitTracker.dto.response.AuthResponse;
+import com.example.HabbitTracker.dto.response.SimpleResponse;
+import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import javax.mail.MessagingException;
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")

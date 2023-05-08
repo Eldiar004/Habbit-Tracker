@@ -1,7 +1,7 @@
 package com.example.HabbitTracker.config.security;
 
-import com.example.habits_tracker.config.jwt.JwtTokenFilter;
-import com.example.habits_tracker.db.repository.UserRepository;
+import com.example.HabbitTracker.config.jwt.JwtTokenFilter;
+import com.example.HabbitTracker.db.repository.UserRepository;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +38,7 @@ public class WebAppSecurity {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, JwtTokenFilter filter) throws Exception {
-        httpSecurity.cors().and().csrf().disable().authorizeHttpRequests(auth -> auth.antMatchers("api/auth/**").permitAll().antMatchers("/api-docs", "/v3/api-docs", "/swagger-ui/index.html").permitAll().anyRequest().permitAll());
+        httpSecurity.cors().and().csrf().disable().authorizeHttpRequests(auth -> auth.requestMatchers("api/auth/**").permitAll().requestMatchers("/api-docs", "/v3/api-docs", "/swagger-ui/index.html").permitAll().anyRequest().permitAll());
         httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }

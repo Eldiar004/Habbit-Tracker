@@ -1,17 +1,19 @@
 package com.example.HabbitTracker.db.service.serviceimpl;
 
-import com.example.habits_tracker.config.jwt.JwtTokenProvider;
-import com.example.habits_tracker.db.entities.User;
-import com.example.habits_tracker.db.repository.UserRepository;
-import com.example.habits_tracker.db.service.UserService;
-import com.example.habits_tracker.dto.request.AuthRequest;
-import com.example.habits_tracker.dto.request.ResetPasswordRequest;
-import com.example.habits_tracker.dto.request.SignUpRequest;
-import com.example.habits_tracker.dto.response.AuthResponse;
-import com.example.habits_tracker.dto.response.SimpleResponse;
-import com.example.habits_tracker.exceptions.BadCredentialsException;
-import com.example.habits_tracker.exceptions.BadRequestException;
-import com.example.habits_tracker.exceptions.NotFoundException;
+import com.example.HabbitTracker.config.jwt.JwtTokenProvider;
+import com.example.HabbitTracker.db.entities.User;
+import com.example.HabbitTracker.db.repository.UserRepository;
+import com.example.HabbitTracker.db.service.UserService;
+import com.example.HabbitTracker.dto.request.AuthRequest;
+import com.example.HabbitTracker.dto.request.ResetPasswordRequest;
+import com.example.HabbitTracker.dto.request.SignUpRequest;
+import com.example.HabbitTracker.dto.response.AuthResponse;
+import com.example.HabbitTracker.dto.response.SimpleResponse;
+import com.example.HabbitTracker.exceptions.BadCredentialsException;
+import com.example.HabbitTracker.exceptions.BadRequestException;
+import com.example.HabbitTracker.exceptions.NotFoundException;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -19,8 +21,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.util.Random;
 
 @Service
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final CodeRepository codeRepository;
+//    private final CodeRepository codeRepository;
 
     private final JavaMailSender javaMailSender;
 
@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public SimpleResponse forgotPassword(String email) throws MessagingException {
+    public SimpleResponse forgotPassword(String email) throws MessagingException{
         User user = userRepository.findByEmail(email).orElseThrow(
                 () -> new NotFoundException(String.format("User with email: %s not found!", email))
         );

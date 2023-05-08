@@ -1,6 +1,6 @@
 package com.example.HabbitTracker.db.repository;
 
-import com.example.habits_tracker.db.entities.User;
+import com.example.HabbitTracker.db.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

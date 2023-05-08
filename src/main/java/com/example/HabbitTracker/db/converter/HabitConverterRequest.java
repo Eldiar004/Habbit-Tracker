@@ -1,11 +1,10 @@
 package com.example.HabbitTracker.db.converter;
 
-import com.example.habits_tracker.db.entities.Habit;
-import com.example.habits_tracker.dto.request.HabitRequest;
-import com.example.habits_tracker.exceptions.BadRequestException;
+import com.example.HabbitTracker.db.entities.Habit;
+import com.example.HabbitTracker.dto.request.HabitRequest;
+import com.example.HabbitTracker.exceptions.BadRequestException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Component;
-
-import javax.transaction.Transactional;
 
 @Component
 public class HabitConverterRequest {
