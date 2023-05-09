@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 public interface HabitRepository extends JpaRepository<Habit, Long> {
 
-    @Query("select new com.example.habits_tracker.dto.response.HabitResponse(h.id, h.name, h.description, h.goal, h.startDate, h.endDate) from Habit h")
+    @Query("select new com.example.HabbitTracker.dto.response.HabitResponse(h.id, h.name, h.description, h.goal, h.startDate, h.endDate) from Habit h")
     List<HabitResponse> getAll();
 
-    @Query("select new com.example.habits_tracker.dto.response.HabitResponse(h.id, h.name, h.description, h.goal, h.startDate, h.endDate) from Habit h where h.id = :id")
+    @Query("select new com.example.HabbitTracker.dto.response.HabitResponse(h.id, h.name, h.description, h.goal, h.startDate, h.endDate) from Habit h where h.id = :id")
     HabitResponse convertForUpdateMethod(@Param("id") Long id);
 
 }
