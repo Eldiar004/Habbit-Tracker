@@ -9,12 +9,12 @@ spring.main.allow-circular-references=true
 
 jwt.token.issuer=
 jwt.token.secret=
-jwt.token.expired=3600000
+jwt.token.expired=
 
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=28112002akn@gmail.com
-spring.mail.password=kfndjs2811
+spring.mail.host=
+spring.mail.port=
+spring.mail.username=
+spring.mail.password=
 spring.mail.protocol=smtp
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.auth=
+spring.mail.properties.mail.smtp.starttls.enable=
