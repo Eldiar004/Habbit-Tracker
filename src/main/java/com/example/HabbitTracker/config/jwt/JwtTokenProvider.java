@@ -18,13 +18,13 @@ import java.util.Date;
 @Setter
 public class JwtTokenProvider {
 
-    @Value("jwt.token.issuer")
+    @Value("${jwt.token.issuer}")
     private String issuer;
 
-    @Value("jwt.token.secret")
+    @Value("${jwt.token.secret}")
     private String secretWord;
 
-    @Value("jwt.token.expired")
+    @Value("${jwt.token.expired}")
     private String expiresAt;
 
     public String generateToken(String email) {

@@ -12,7 +12,7 @@ public class ReminderService {
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     public void scheduleReminder(Runnable task, long initialDelay, long period) {
-        scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.SECONDS);
     }
 
     public void shutdown() {
