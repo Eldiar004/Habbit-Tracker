@@ -36,5 +36,9 @@ public class HabitController {
     public String delete(@PathVariable Long id) {
         return habitService.delete(id);
     }
+    @GetMapping("/remind")
+    public String remind(String message) {
+        return message;
+    }
 
 }

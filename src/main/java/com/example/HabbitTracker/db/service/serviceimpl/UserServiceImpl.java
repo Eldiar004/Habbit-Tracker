@@ -34,8 +34,6 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-//    private final CodeRepository codeRepository;
-
     private final JavaMailSender javaMailSender;
 
     private int randomNumber;
