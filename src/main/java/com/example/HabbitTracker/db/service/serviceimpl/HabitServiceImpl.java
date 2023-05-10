@@ -38,8 +38,10 @@ public class HabitServiceImpl implements HabitService {
     private User getUserAuthentication() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String login = authentication.getName();
+        login = "thomashelby@gmail.com";
+        String finalLogin = login;
         return userRepository.findByEmail(login).orElseThrow(
-                () -> new NotFoundException(String.format("User with email: %s not found!", login))
+                () -> new NotFoundException(String.format("User with email: %s not found!", finalLogin))
         );
     }
 
@@ -58,7 +60,7 @@ public class HabitServiceImpl implements HabitService {
         // setting reminder
         ReminderUtil reminder = applicationContext.getBean(ReminderUtil.class);
         reminder.setMessage("Time to do: " + habit.getName());
-        reminderService.scheduleReminder((Runnable) reminder, 30, 86400);
+        reminderService.scheduleReminder((Runnable) reminder, 10, 86400);
 
 
         return new HabitResponse(habit.getId(), habit.getName(), habit.getDescription(), habit.getGoal(),
