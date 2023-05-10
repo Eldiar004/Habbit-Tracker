@@ -1,6 +1,5 @@
 package com.example.HabbitTracker.db.entities;
 
-import com.example.HabbitTracker.db.entities.enums.ExecutionFrequency;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

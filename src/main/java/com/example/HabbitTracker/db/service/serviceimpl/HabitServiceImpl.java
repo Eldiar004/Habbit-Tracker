@@ -28,6 +28,8 @@ public class HabitServiceImpl implements HabitService {
 
     private final UserRepository userRepository;
 
+    private final ReminderService reminderService;
+
     private User getUserAuthentication() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String login = authentication.getName();
@@ -48,6 +50,10 @@ public class HabitServiceImpl implements HabitService {
         habit.setUser(user);
         user.addHabit(habit);
         habitRepository.save(habit);
+        // setting reminder
+//        reminderService.scheduleReminder();
+
+
         return new HabitResponse(habit.getId(), habit.getName(), habit.getDescription(), habit.getGoal(),
                 habit.getStartDate(), habit.getEndDate());
     }
