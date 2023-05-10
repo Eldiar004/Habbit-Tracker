@@ -12,7 +12,6 @@ import com.example.HabbitTracker.dto.response.HabitResponse;
 import com.example.HabbitTracker.dto.response.SimpleResponse;
 import com.example.HabbitTracker.exceptions.BadRequestException;
 import com.example.HabbitTracker.exceptions.NotFoundException;
-import com.example.HabbitTracker.util.ReminderUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
@@ -57,11 +56,6 @@ public class HabitServiceImpl implements HabitService {
         habit.setUser(user);
         user.addHabit(habit);
         habitRepository.save(habit);
-        // setting reminder
-        ReminderUtil reminder = applicationContext.getBean(ReminderUtil.class);
-        reminder.setMessage("Time to do: " + habit.getName());
-        reminderService.scheduleReminder((Runnable) reminder, 10, 86400);
-
 
         return new HabitResponse(habit.getId(), habit.getName(), habit.getDescription(), habit.getGoal(),
                 habit.getStartDate(), habit.getEndDate());

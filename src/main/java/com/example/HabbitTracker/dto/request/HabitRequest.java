@@ -1,5 +1,6 @@
 package com.example.HabbitTracker.dto.request;
 
+import com.example.HabbitTracker.db.entities.Frequency;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +22,7 @@ public class HabitRequest {
     private LocalDate startDate;
 
     private LocalDate endDate;
+
+    private FrequencyRequest frequency;
 
 }
