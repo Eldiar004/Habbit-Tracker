@@ -9,19 +9,17 @@ import com.example.HabbitTracker.db.repository.HabitRepository;
 import com.example.HabbitTracker.db.repository.UserRepository;
 import com.example.HabbitTracker.db.service.HabitService;
 import com.example.HabbitTracker.dto.request.HabitRequest;
-import com.example.HabbitTracker.dto.request.TrackingRequest;
 import com.example.HabbitTracker.dto.response.HabitResponse;
 import com.example.HabbitTracker.dto.response.SimpleResponse;
-import com.example.HabbitTracker.dto.response.TrackingResponse;
 import com.example.HabbitTracker.exceptions.BadRequestException;
 import com.example.HabbitTracker.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.quartz.JobExecutionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -36,7 +34,6 @@ public class HabitServiceImpl implements HabitService {
 
     private final UserRepository userRepository;
 
-    private final ReminderService reminderService;
 
     private User getUserAuthentication() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -54,12 +51,13 @@ public class HabitServiceImpl implements HabitService {
     }
 
     @Override
-    public HabitResponse create(HabitRequest habitRequest) {
+    public HabitResponse create(HabitRequest habitRequest) throws JobExecutionException {
         Habit habit = habitConverterRequest.addHabit(habitRequest);
         User user = getUserAuthentication();
         habit.setUser(user);
         user.addHabit(habit);
         habitRepository.save(habit);
+
 
         return new HabitResponse(habit.getId(), habit.getName(), habit.getDescription(), habit.getGoal(),
                 habit.getStartDate(), habit.getEndDate());

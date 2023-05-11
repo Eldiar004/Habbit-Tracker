@@ -36,4 +36,7 @@ public class TrackingService {
         trackingResponse.setCountingTheNumberOfCompletedDays(tracking.getCountingTheNumberOfCompletedDays());
         return trackingResponse;
     }
+    public int getCountOfCompletedDays(int habitId) {
+        return trackingRepository.countOfCompletedDays(habitId);
+    }
 }
