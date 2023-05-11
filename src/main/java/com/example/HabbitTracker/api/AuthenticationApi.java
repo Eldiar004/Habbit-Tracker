@@ -4,11 +4,13 @@ import com.example.HabbitTracker.db.service.UserService;
 import com.example.HabbitTracker.dto.request.AuthRequest;
 import com.example.HabbitTracker.dto.request.ResetPasswordRequest;
 import com.example.HabbitTracker.dto.request.SignUpRequest;
+import com.example.HabbitTracker.dto.request.UpdateUserRequest;
 import com.example.HabbitTracker.dto.response.AuthResponse;
 import com.example.HabbitTracker.dto.response.SimpleResponse;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,4 +40,8 @@ public class AuthenticationApi {
         return userService.resetPassword(verifyNumber, request);
     }
 
+    @PostMapping("/{userId}")
+    public SimpleResponse update(@PathVariable Long userId,@RequestBody @Valid UpdateUserRequest updateUserRequest){
+        return userService.changeName(userId,updateUserRequest);
+    }
 }

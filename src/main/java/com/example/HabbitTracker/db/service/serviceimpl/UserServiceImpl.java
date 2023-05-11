@@ -7,6 +7,7 @@ import com.example.HabbitTracker.db.service.UserService;
 import com.example.HabbitTracker.dto.request.AuthRequest;
 import com.example.HabbitTracker.dto.request.ResetPasswordRequest;
 import com.example.HabbitTracker.dto.request.SignUpRequest;
+import com.example.HabbitTracker.dto.request.UpdateUserRequest;
 import com.example.HabbitTracker.dto.response.AuthResponse;
 import com.example.HabbitTracker.dto.response.SimpleResponse;
 import com.example.HabbitTracker.exceptions.BadCredentialsException;
@@ -18,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -120,7 +123,21 @@ public class UserServiceImpl implements UserService {
             userRepository.save(user);
             return new SimpleResponse("Password updated successfully!");
         }
-
     }
 
+    @Override
+    public SimpleResponse changeName(Long userId,UpdateUserRequest updateUserRequest) {
+            User user = userRepository.findById(userId).orElseThrow(()-> new NotFoundException("User not found!"));
+            if (updateUserRequest == null) {
+                return null;
+            }
+            if (updateUserRequest.getFirstName() != null) {
+                user.setFirstname(updateUserRequest.getFirstName());
+            }
+            if (updateUserRequest.getLastname() != null) {
+                user.setLastname(updateUserRequest.getLastname());
+            }
+            userRepository.save(user);
+            return new SimpleResponse("User successfully updated!");
+    }
 }
