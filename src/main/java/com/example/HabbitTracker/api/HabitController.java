@@ -9,6 +9,7 @@ import com.example.HabbitTracker.dto.response.HabitResponse;
 import com.example.HabbitTracker.dto.response.TrackingResponse;
 import lombok.RequiredArgsConstructor;
 
+import org.quartz.JobExecutionException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class HabitController {
     }
 
     @PostMapping("/")
-    public HabitResponse save(@RequestBody HabitRequest habitRequest) {
+    public HabitResponse save(@RequestBody HabitRequest habitRequest) throws JobExecutionException {
         return habitService.create(habitRequest);
     }
 
@@ -44,6 +45,11 @@ public class HabitController {
     @PutMapping("/track")
     public TrackingResponse track(@RequestBody TrackingRequest trackingRequest) {
         return trackingService.track(trackingRequest);
+    }
+
+    @GetMapping("/completedDays")
+    public int completedDays(@RequestBody int habitId) {
+        return trackingService.getCountOfCompletedDays(habitId);
     }
 
 }

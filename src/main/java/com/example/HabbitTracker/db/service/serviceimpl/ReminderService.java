@@ -1,22 +1,17 @@
 package com.example.HabbitTracker.db.service.serviceimpl;
 
+import com.example.HabbitTracker.db.entities.Reminder;
+import com.example.HabbitTracker.db.repository.ReminderRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 @Service
+@RequiredArgsConstructor
 public class ReminderService {
+    private final ReminderRepository repository;
 
-    private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-
-    public void scheduleReminder(Runnable task, long initialDelay, long period) {
-        scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.SECONDS);
-    }
-
-    public void shutdown() {
-        scheduler.shutdown();
+    public void save(Reminder reminder) {
+        repository.save(reminder);
     }
 }
 

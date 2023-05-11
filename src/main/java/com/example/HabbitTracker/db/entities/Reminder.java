@@ -23,6 +23,8 @@ public class Reminder {
 
     private LocalTime localTime;
 
+    private String details;
+
     @ManyToOne(cascade = {DETACH, MERGE, REFRESH})
     private Frequency frequency;
 
