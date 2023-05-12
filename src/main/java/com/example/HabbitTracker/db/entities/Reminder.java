@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+
+import java.time.Duration;
 import java.time.LocalTime;
 
 import static jakarta.persistence.CascadeType.*;
@@ -21,9 +23,14 @@ public class Reminder {
     @SequenceGenerator(name = "reminder_gen", sequenceName = "reminder_seq", allocationSize = 1)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "habitId", referencedColumnName = "id")
+    private Habit habit;
+
     private LocalTime localTime;
 
-    private String details;
+    private String message;
+
 
     @ManyToOne(cascade = {DETACH, MERGE, REFRESH})
     private Frequency frequency;

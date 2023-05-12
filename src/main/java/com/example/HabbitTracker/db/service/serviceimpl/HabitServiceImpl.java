@@ -34,6 +34,8 @@ public class HabitServiceImpl implements HabitService {
 
     private final UserRepository userRepository;
 
+    private final ReminderService reminderService;
+
 
     private User getUserAuthentication() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -56,7 +58,7 @@ public class HabitServiceImpl implements HabitService {
         User user = getUserAuthentication();
         habit.setUser(user);
         user.addHabit(habit);
-        habitRepository.save(habit);
+        Habit savedHabit = habitRepository.save(habit);
 
 
         return new HabitResponse(habit.getId(), habit.getName(), habit.getDescription(), habit.getGoal(),

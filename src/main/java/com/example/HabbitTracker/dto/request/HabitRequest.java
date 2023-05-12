@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -23,6 +26,5 @@ public class HabitRequest {
 
     private LocalDate endDate;
 
-    private FrequencyRequest frequency;
 
 }

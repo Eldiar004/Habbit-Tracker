@@ -5,7 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
@@ -44,5 +47,8 @@ public class Habit {
 
     @ManyToMany(cascade = {DETACH, MERGE, REFRESH, REMOVE}, mappedBy = "habits")
     private List<Achievement> achievements;
+    @OneToMany(mappedBy = "habit")
+    private List<Reminder> reminders;
+
 
 }

@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Setter
 @Getter
@@ -23,6 +25,7 @@ public class HabitResponse {
 
     private LocalDate endDate;
 
+
     public HabitResponse(Long id, String name, String description, int goal, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.name = name;
@@ -31,5 +34,4 @@ public class HabitResponse {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-
 }
